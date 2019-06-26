@@ -371,7 +371,7 @@ class Tseniority extends React.Component {
              <ul>
                  {
                      this.state.arr.map((item,index)=>{
-                        return <li className={style.topic_item}>
+                        return <li className={style.topic_item} key={index}>
                         <div className="topic_main">
                         <a href="javascript:;" className="topic_media">
                         <img src={item.picUrl} />
@@ -384,7 +384,7 @@ class Tseniority extends React.Component {
                         <h3 className="topic_tit">{item.topTitle}</h3>
                         {
                             item.songList.map((ii,inde)=>{
-                                return <p>{inde+1}<span className="text_name">{ii.singername}</span>- {ii.songname}</p>
+                                return <p key={inde}>{inde+1}<span className="text_name">{ii.singername}</span>- {ii.songname}</p>
                             })
                         }
                         </div><i className="topic_arrow"></i>

@@ -1,6 +1,9 @@
+
 import dva from 'dva';
 import './index.css';
 import 'antd/dist/antd.css';
+import 'weui'
+import 'react-weui/build/packages/react-weui.css'
 // 1. Initialize
 const app = dva();
 
