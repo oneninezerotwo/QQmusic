@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import style from './TTsearch.css'
+import axios from 'axios'
 class Tsearch extends React.Component{
     state={
         Show:false,
+        inputtext:''
     }
         render(){
             return(
@@ -17,7 +19,7 @@ class Tsearch extends React.Component{
                 }>
                 <div className="weui-search-bar__box">
                     <i className="weui-icon-search"></i>
-                    <input type="search" className="weui-search-bar__input" id="searchInput" placeholder="搜索歌曲,歌单,专辑" required=""  ref="input" />
+                    <input type="search" value={this.inputtext} className="weui-search-bar__input" id="searchInput" placeholder="搜索歌曲,歌单,专辑" required=""  ref="input" />
                     <a href="javascript:" className="weui-icon-clear" id="searchClear"></a>
                 </div>
                 <label className="weui-search-bar__label" id="searchText">
@@ -29,28 +31,7 @@ class Tsearch extends React.Component{
                 this.Addshow.bind(this)
             }>取消</a>
         </div>
-        {/* <div className="weui-cells searchbar-result" id="searchResult">
-            <div className="weui-cell weui-cell_access">
-                <div className="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div className="weui-cell weui-cell_access">
-                <div className="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div className="weui-cell weui-cell_access">
-                <div className="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-            <div className="weui-cell weui-cell_access">
-                <div className="weui-cell__bd weui-cell_primary">
-                    <p>实时搜索文本</p>
-                </div>
-            </div>
-        </div> */}
+       {/*  */}
         <div style={{
             display:this.state.Show?'none':'block'
         }}>
@@ -69,7 +50,28 @@ class Tsearch extends React.Component{
             </div>
             </div>
         </div>
+        {/*  */}
+        <div className={style.mod_search_content}>
+        <ul className="search_content">
+            <li>
+            <span className="media avatar">
+            <img src="https://y.gtimg.cn/music/photo_new/T001R68x68M000002J4UUk29y8BY.jpg?max_age=2592000" alt="薛之谦" />
+            </span>
+            <h6 className="main_tit">薛之谦</h6>
+            <p className="sub_tit">
+            <span>单曲：289</span>
+            <span>专辑：16</span></p>
+            </li>
+            <li><i className="icon"></i><h6 className="main_tit">木偶人</h6><p className="sub_tit">薛之谦</p></li>
+            <li><i className="icon"></i><h6 className="main_tit">丑八怪</h6><p className="sub_tit">薛之谦</p></li>
+            <li><i className="icon"></i><h6 className="main_tit">你还要我怎样</h6><p className="sub_tit">薛之谦</p></li>
+            <li><i className="icon"></i><h6 className="main_tit">演员</h6><p className="sub_tit">薛之谦</p></li>
+            </ul>
+            <p className="load_complete">点击获取更多搜索结果</p>
+            </div>
     </div>
+
+        
             )
         }
         // this.state.Show
@@ -95,8 +97,10 @@ class Tsearch extends React.Component{
             })
         }
 
-        componentDidMount(){
-            console.log(this)
+       async componentDidMount(){
+            // console.log(this)
+            let {data} = await axios.get('https://www.easy-mock.com/mock/5d10414b9c345b6186b613b8/example/api#!method=get')
+            console.log(data)
         }
 
 }

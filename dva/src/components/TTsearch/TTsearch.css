@@ -26,3 +26,67 @@
   color: #fc4524;
   border-color: #fc4524;
 }
+.mod_search_content > p {
+  line-height: 40px;
+  text-align: center;
+  color: grey;
+}
+.mod_search_content > ul > li {
+  position: relative;
+  height: 55px;
+  padding-left: 56px;
+  overflow: hidden;
+  list-style: none;
+}
+.mod_search_content > ul > li > i {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 22px;
+  height: 20px;
+  background-position: 0 0;
+  background-image: url(https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/search_sprite.png?max_age=2592000&v=87848a61828f15e8f0a517b10e67cd2f);
+  background-repeat: no-repeat;
+  background-size: 22px 30px;
+}
+.mod_search_content > ul > li > span {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+}
+.mod_search_content > ul > li > span img {
+  display: block;
+  width: 100%;
+  border-radius: 999px;
+}
+.mod_search_content > ul > li > h6 {
+  margin: 10px 0 2px;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.mod_search_content > ul > li > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: grey;
+}
+.mod_search_content > ul > li > p span {
+  margin-right: 10px;
+}
+.mod_search_content > ul > li ::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #e5e5e5;
+}
