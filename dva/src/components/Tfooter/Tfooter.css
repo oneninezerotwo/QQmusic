@@ -1,0 +1,33 @@
+.mod_footer {
+  padding: 15px 0 70px;
+  display: block;
+}
+.mod_footer .version_tab {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.mod_footer .version_tab a {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 14px;
+  height: 14px;
+  line-height: 14px;
+  color: #000;
+}
+.mod_footer .footer_logo {
+  display: block;
+  width: 82px;
+  height: 24px;
+  margin: 0 auto 10px;
+  background-image: url("https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/logo_footer.png?max_age=2592000&v=0b997108f6088df4b8f515bf4d4869cb");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-indent: -9999px;
+  text-align: center;
+}
+.mod_footer .copyright {
+  font-size: 10px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}

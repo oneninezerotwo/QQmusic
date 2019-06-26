@@ -1,0 +1,73 @@
+.box .qui_dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+.box .qui_dialog__mask .qui_dialog__box {
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  width: 296px;
+  max-height: 68%;
+  font: 300 12px/1.5 sans-serif;
+  color: #000;
+  border-radius: 5px;
+  background: #fff;
+}
+.box .qui_dialog__mask .qui_dialog__media {
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+.box .qui_dialog__mask .qui_dialog__media .qui_dialog__img {
+  display: block;
+  width: 100%;
+}
+.box .qui_dialog__mask .qui_dialog__ft {
+  position: relative;
+  display: -webkit-box;
+}
+.box .qui_dialog__mask .qui_dialog__close {
+  position: absolute;
+  left: 50%;
+  bottom: -84px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateX(-50%);
+}
+.box .qui_dialog__mask .qui_dialog__close .qui_dialog__close_txt {
+  position: relative;
+  display: block;
+  width: 37px;
+  height: 37px;
+  margin: 5px;
+  line-height: 999px;
+  overflow: hidden;
+  border: solid 1px #fff;
+  border-radius: 33px;
+}
+.box .qui_dialog__mask .qui_dialog__close .qui_dialog__close_txt::after {
+  width: 19px;
+  height: 1px;
+  top: 18px;
+  left: 8px;
+  content: "";
+  position: absolute;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.box .qui_dialog__mask .qui_dialog__close .qui_dialog__close_txt::before {
+  width: 1px;
+  height: 19px;
+  top: 9px;
+  left: 17px;
+  content: "";
+  position: absolute;
+  background: #fff;
+  transform: rotate(45deg);
+}
