@@ -35,7 +35,7 @@ class Tshade extends React.Component {
         this.setState({
             Show:false
         })
-        console.log(1111)
+        // console.log(1111)
     }
 
 

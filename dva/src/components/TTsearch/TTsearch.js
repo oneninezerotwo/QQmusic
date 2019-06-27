@@ -1,16 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import style from './TTsearch.css'
+import apis from '../../store/api.json'
 import axios from 'axios'
 class Tsearch extends React.Component{
     state={
         Show:false,
-        inputtext:''
+        inputtext:'',
+        arr:apis.data.arr,
+        isok:false
     }
         render(){
             return(
                 <div className="page__bd">
-        {/* <!--<a href="javascript:;" className="weui-btn weui-btn_primary">点击展现searchBar</a>--> */}
+        {/* <!--<a href="javascript:void(0)" className="weui-btn weui-btn_primary">点击展现searchBar</a>--> */}
         <div className={
             this.state.Show?'weui-search-bar weui-search-bar_focusing':'weui-search-bar'
         } id="searchBar">
@@ -19,15 +22,19 @@ class Tsearch extends React.Component{
                 }>
                 <div className="weui-search-bar__box">
                     <i className="weui-icon-search"></i>
-                    <input type="search" value={this.inputtext} className="weui-search-bar__input" id="searchInput" placeholder="搜索歌曲,歌单,专辑" required=""  ref="input" />
-                    <a href="javascript:" className="weui-icon-clear" id="searchClear"></a>
+                    <input type="search" value={this.inputtext} onChange={
+                        this.getInputValue.bind(this)
+                    } className="weui-search-bar__input" id="searchInput" placeholder="搜索歌曲,歌单,专辑" required=""  ref="input" />
+                    <a href="javascript:" className="weui-icon-clear" id="searchClear" onClick={
+                        this.Deleinputtet.bind(this)
+                    }></a>
                 </div>
                 <label className="weui-search-bar__label" id="searchText">
                     <i className="weui-icon-search"></i>
                     <span>搜索歌曲,歌单,专辑</span>
                 </label>
             </form>
-            <a href="javascript:" className="weui-search-bar__cancel-btn" id="searchCancel" onClick={
+            <a href="javascript:void(0)" className="weui-search-bar__cancel-btn" id="searchCancel" onClick={
                 this.Addshow.bind(this)
             }>取消</a>
         </div>
@@ -38,37 +45,52 @@ class Tsearch extends React.Component{
         <div id="js_hot_keys" className={style.mod_search_result}>
         <h3 className="result_tit">热门搜索</h3>
         <div className="result_tags">
-            <a href="javascript:;" className={style.tag_hot}>YAMAHA回归</a>
-            <a href="javascript:;" className="tag_s">READ ALL ABOUT IT </a>
-            <a href="javascript:;" className="tag_s">薛之谦 </a>
-            <a href="javascript:;" className="tag_s">RIGHT ON TIME </a>
-            <a href="javascript:;" className="tag_s">放个大招给你看 </a>
-            <a href="javascript:;" className="tag_s">缘分一道桥 </a>
-            <a href="javascript:;" className="tag_s">你笑起来真好看 </a>
-            <a href="javascript:;" className="tag_s">夜空中最亮的星 </a>
-            <a href="javascript:;" className="tag_s">玩具总动员4 </a>
+            <a href="javascript:void(0)" className={style.tag_hot}>YAMAHA回归</a>
+            <a href="javascript:void(0)" className="tag_s">READ ALL ABOUT IT </a>
+            <a href="javascript:void(0)" className="tag_s">薛之谦 </a>
+            <a href="javascript:void(0)" className="tag_s">RIGHT ON TIME </a>
+            <a href="javascript:void(0)" className="tag_s">放个大招给你看 </a>
+            <a href="javascript:void(0)" className="tag_s">缘分一道桥 </a>
+            <a href="javascript:void(0)" className="tag_s">你笑起来真好看 </a>
+            <a href="javascript:void(0)" className="tag_s">夜空中最亮的星 </a>
+            <a href="javascript:void(0)" className="tag_s">玩具总动员4 </a>
             </div>
             </div>
         </div>
         {/*  */}
-        <div className={style.mod_search_content}>
-        <ul className="search_content">
-            <li>
-            <span className="media avatar">
-            <img src="https://y.gtimg.cn/music/photo_new/T001R68x68M000002J4UUk29y8BY.jpg?max_age=2592000" alt="薛之谦" />
-            </span>
-            <h6 className="main_tit">薛之谦</h6>
-            <p className="sub_tit">
-            <span>单曲：289</span>
-            <span>专辑：16</span></p>
-            </li>
-            <li><i className="icon"></i><h6 className="main_tit">木偶人</h6><p className="sub_tit">薛之谦</p></li>
-            <li><i className="icon"></i><h6 className="main_tit">丑八怪</h6><p className="sub_tit">薛之谦</p></li>
-            <li><i className="icon"></i><h6 className="main_tit">你还要我怎样</h6><p className="sub_tit">薛之谦</p></li>
-            <li><i className="icon"></i><h6 className="main_tit">演员</h6><p className="sub_tit">薛之谦</p></li>
-            </ul>
+       <div  style={{
+            display:this.state.Show&&this.state.isok?'block':'none'
+        }}>
+       <div className={style.mod_search_content}>
+           {
+                this.state.arr.filter((item)=>{
+                        if(item.keyword.indexOf(this.state.inputtext)>-1){
+                            return item
+                        }
+                }).map((item,index)=>{
+                    return  <ul className="search_content" key={index}> <li>
+                    <span className="media avatar">
+                    <img src="https://y.gtimg.cn/music/photo_new/T001R68x68M000002J4UUk29y8BY.jpg?max_age=2592000" alt="薛之谦" />
+                    </span>
+                    <h6 className="main_tit">{item.zhida.singername}</h6>
+                    <p className="sub_tit">
+                    <span>单曲：{
+                        item.zhida.songnum
+                    }</span>
+                    <span>专辑：{item.zhida.albumnum}</span></p>
+                    </li>
+                    {
+                        item.song.list.map((ites,inde)=>{
+                            return <li key={inde}><i className="icon"></i><h6 className="main_tit">{ites.albumname}</h6><p className="sub_tit">{item.zhida.singername}</p></li>
+                        })
+                    }
+                    </ul>
+                })
+           }
+            
             <p className="load_complete">点击获取更多搜索结果</p>
             </div>
+       </div>
     </div>
 
         
@@ -81,7 +103,6 @@ class Tsearch extends React.Component{
             this.setState({
                 Show:true
             })
-            // console.log(11)
             this.props.dispatch({
                 type:"Deleshow",
                 Shows:true
@@ -96,11 +117,44 @@ class Tsearch extends React.Component{
                 Shows:false
             })
         }
-
+        getInputValue(e){
+            //把输入的至付给里面的数据inputtext
+            //然后把inputtext付给input的value
+                let inputtext = e.target.value
+                this.setState({
+                    inputtext,
+                })
+                
+                if(inputtext.length>0){
+                    this.setState({
+                        isok:true
+                    })
+                }else{
+                    this.setState({
+                        isok:false
+                    })
+                }
+                //  console.log((inputtext.length)
+                // if(this.state.inputtext.length==0){
+                //     this.setState({
+                //         isok:false
+                //     })
+                // }
+        }
+        Deleinputtet(){
+            this.refs.input.value = ''
+            this.setState({
+                inputtext:'',
+                isok:false
+            })
+            // console.log(1)
+            // console.log(innts)
+        }
        async componentDidMount(){
             // console.log(this)
             let {data} = await axios.get('https://www.easy-mock.com/mock/5d10414b9c345b6186b613b8/example/api#!method=get')
             console.log(data)
+            console.log(this.state.arr)
         }
 
 }
