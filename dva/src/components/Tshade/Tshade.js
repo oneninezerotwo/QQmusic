@@ -1,9 +1,13 @@
 import React from 'react'
 import style from './Tshade.css'
+import { connect } from 'dva';
+// import {}
 class Tshade extends React.Component {
 
     state={
-            Show:true
+            Show:true,
+            // Shows:null
+
     }
     render() {
         return (
@@ -32,14 +36,23 @@ class Tshade extends React.Component {
         )
     }
     Dleleshow(){
+         window.sessionStorage.setItem("Show", false)
         this.setState({
-            Show:false
+            Show:  Number(window.sessionStorage.getItem("Show"))
         })
-        // console.log(1111)
     }
-
+    componentDidMount(){
+        if(window.sessionStorage.getItem("Show")){
+            this.setState({
+                Show:  Number(window.sessionStorage.getItem("Show"))
+            })
+        }
+    }
+ 
 
 }
-export default Tshade
+export default  connect((state)=>{
+        return state
+})(Tshade)
 
 

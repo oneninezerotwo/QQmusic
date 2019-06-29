@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
+    "start": "set BROWSET=none&&set HOST=0.0.0.0&&set PORT=5488&&roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
@@ -30,4 +30,5 @@
     "redbox-react": "^1.4.3",
     "roadhog": "^2.5.0-beta.4"
   }
+  
 }

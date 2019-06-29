@@ -24,7 +24,14 @@ class Thome extends React.Component {
         </div>
       )
     }
+    componentDidMount(){
 
+      // // window.sessionStorage.setItem(“key”, “value”);
+
+      // // window.sessionStorage.getItem(“key”);
+      //   if()
+      // https://v1.itooi.cn/tencent/topList?id=26&pageSize=100&page=0&format=1
+    }
   
 }
 

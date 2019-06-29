@@ -3,6 +3,8 @@ import Theader from '../../components/Theader/Theader'
 import Tnav from '../../components/Tnav/Tnav'
 import Tseniority from '../../components/Tseniority/Tseniority'
 import Tinstall from '../../components/Tinstall/Tinstall'
+import { connect } from 'dva';
+
 class Tranking extends React.Component {
     render() {
         return (
@@ -15,6 +17,12 @@ class Tranking extends React.Component {
            </div>
         )
     }
+
+    componentDidMount(){
+            // console.log(this.props)
+    }
    
 }
-export default Tranking
+export default  connect((state)=>{
+        return state
+})(Tranking)

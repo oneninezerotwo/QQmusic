@@ -1,5 +1,7 @@
 import React from 'react'
 import style from './Tseniority.css'
+import { withRouter } from 'dva/router';
+import { connect } from 'dva';
 import axios from 'axios'
 class Tseniority extends React.Component {
     state={
@@ -8,12 +10,15 @@ class Tseniority extends React.Component {
   componentDidMount(){
         this.addpage()
         // this.bianwang()
+        // console.log(this.props)
+        // console.log(this.state.arr1)
     }
 //     bianwang(num){
 //         let x=num/10000;
 //        let y=x+"万";
 //        console.log(y)
 //       return y
+            
 //  }
     render() {
         return (
@@ -22,7 +27,9 @@ class Tseniority extends React.Component {
                  {
                   
                      this.state.arr1.map((item,index)=>{
-                        return <li className={style.topic_item} key={index}>
+                        return <li className={style.topic_item} key={index} onClick={
+                            this.TOxianqing.bind(this,item.id)
+                        }>
                         <div className="topic_main">
                         <a href="javascript:;" className="topic_media">
                         <img src={item.picUrl} />
@@ -59,9 +66,21 @@ class Tseniority extends React.Component {
         this.setState({
             arr1:[...data.topList]
         })
-         console.log(this.state.arr1)
+        //  console.log(this.state.arr1)
+        
     }
-   
+   TOxianqing(id){
+       console.log(id)
+    this.props.history.push({
+        pathname:`/Tbillboard?id=${id}`
+    })
+   }
    
 }
-export default Tseniority
+
+    
+
+Tseniority = withRouter(Tseniority)
+export default connect((state) => {
+    return state
+})(Tseniority)

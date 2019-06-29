@@ -1,0 +1,39 @@
+.player{
+    text-align: center;
+    margin: 12px 13px;
+    
+    height: 399px;
+    >img{
+        position: relative;
+        z-index: 1;
+        width: 209px;
+        height: 209px;
+        object-fit: cover;
+        border-radius: 18px;
+        text-align: center;
+
+    }
+    a{
+        width: 200px;
+        height: 44px;
+        border-radius: 44px;
+        box-shadow: 0 6px 32px rgba(24,213,156,.5);
+        background-color: #22d59c;
+        display: inline-block;
+        position: relative;
+        span{
+            width: 0;
+            height: 0;;
+            display: block;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+           
+        }
+       }
+    
+}
