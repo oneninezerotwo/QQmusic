@@ -1,0 +1,178 @@
+.js_main{
+    
+    text-align: center;
+    position: relative;
+    padding-bottom: 16px;
+    overflow: hidden;
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+        width: 100%;
+        height: 331px;
+        background-image: -webkit-linear-gradient(top,rgba(255,255,255,0),rgba(255,255,255,1));
+    }
+}
+
+
+
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    >img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        opacity: .06;
+        transform: scale(1.2);
+    }
+}
+.main__bd{
+    position: relative;
+    z-index: 4;
+    .song_info{
+        .song_info__hd{
+            >h1{
+                display: -webkit-box;
+                -webkit-box-pack: center;
+                -webkit-box-align: center;
+                margin-top: 22px;
+                font-weight: 600;
+               
+                >span{
+                    display: block;
+                    // max-width: .462963rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 23px;
+                    font-weight: 600;
+                    color: #000;
+                }
+            }
+            >h2{
+                margin: 0 16px 22px;
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 17px;
+                font-weight: 400;
+            }
+        }
+        .song_info__bd{
+            position: relative;
+            height: 258px;
+            // overflow: hidden;
+            .album_cover{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                z-index: 2;
+                width: 2.388889rem;
+                height: 2.388889rem;
+                margin-left: -9.17rem;
+                box-shadow: 0 0.05rem 0.2rem rgba(0,0,0,.2)
+            }
+            .fade_out{
+                display: none;
+            }
+            
+            .lyric{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-box-pack: center;
+                -webkit-box-align: center;
+                width: 100%;
+                height: 100%;
+                
+            }
+            .fade_in{
+                display: block;
+            }
+        }
+    }
+}
+.lyric{
+    >a{
+        display: -webkit-box;
+         -webkit-box-pack: center;
+        -webkit-box-align: center;
+        height: 33px;
+        margin-top: 33px;
+        font-size: 16px;
+            color: #000;
+            &::after{
+                content: "";
+                display: block;
+                width: 12px;
+                height: 12px;
+                border-style: solid;
+                border-width: 0 .009259rem .009259rem 0;
+                border-color: #000;
+                 transform: rotate(-45deg);
+            }
+    }
+
+}
+#lyric_txt{
+        height: 165px;
+}
+.lyric__para{
+    line-height: 2;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: .138889rem;
+    color: rgba(0,0,0,.9);
+    font-size: 16px;
+}
+.lyric__bd{
+    width: 100%;
+    height: 1.527778rem;
+    overflow: hidden;
+    mask: -webkit-linear-gradient(top,rgba(0,0,0,0),#fff 25%,#fff 75%,rgba(0,0,0,0));
+}
+
+.opt{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 99px;
+    
+    >a{
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        width: 43px;
+        height: 43px;
+        margin: 0 23px;
+        border: solid .009259rem rgba(0,0,0,.2);
+        border-radius: 100%;
+        // line-height: 34px;
+        color: black;
+        position: relative;
+        >img{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%)
+        }
+        .bbbg{
+            left: 56%
+        }
+    }
+}

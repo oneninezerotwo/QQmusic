@@ -5,6 +5,7 @@ import { Router, Route, Switch } from 'dva/router';
 import Thome from './routes/Thome/Thome';
 import Tranking from './routes/Tranking/Tranking';
 import Tsearch from './routes/Tsearch/Tsearch';
+import TMusicdetailss from './routes/TMusicdetailss/TMusicdetailss';
 import Tbillboard from './routes/Tbillboard/Tbillboard';
 import {Provider} from 'react-redux'
 import store from './store/store'
@@ -18,6 +19,7 @@ function RouterConfig({ history }) {
         <Route path="/Tranking" exact component={Tranking} />
         <Route path="/Tsearch" exact component={Tsearch} />
         <Route path="/Tbillboard:id" exact component={Tbillboard} />
+        <Route path="/TMusicdetailss" exact component={TMusicdetailss} />
       </Switch>
     </Router>
     </Provider>
